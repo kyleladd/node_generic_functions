@@ -19,10 +19,10 @@ var genericfunctions = require('../genericfunctions.js');
 
 describe("Generic Functions", function(){
   describe("convertToInttime function", function(){
-    it("should convert time '1:00 p.m.'' to 1300", function(){
+    it("should convert time '1:00 p.m.' to 1300", function(){
       expect(genericfunctions.convertToInttime("1:00 p.m.")).to.equal(1300);
     });
-    it("should convert time '1:00 p.m.'' to 1300", function(){
+    it("should convert time '1:00 p.m.' to 1300", function(){
       expect(genericfunctions.convertToInttime("1:00 p.m.")).to.equal(1300);
     });
     it("should convert time '11:00am' to 1100", function(){
@@ -50,6 +50,22 @@ describe("Generic Functions", function(){
       expect(genericfunctions.convertToInttime("9:30pm")).to.equal(2130);
     });
   });
+
+  describe("convertIntToStrTime function", function(){
+    it("should convert time 1300 to '1:00pm'", function(){
+      expect(genericfunctions.convertIntToStrTime(1300)).to.equal("1:00pm");
+    });
+    it("should convert time 100 to '1:00am'", function(){
+      expect(genericfunctions.convertIntToStrTime(100)).to.equal("1:00am");
+    });
+    it("should convert time 1200 to '12:00pm'", function(){
+      expect(genericfunctions.convertIntToStrTime(1200)).to.equal("12:00pm");
+    });
+    it("should convert time 0 to '12:00am'", function(){
+      expect(genericfunctions.convertIntToStrTime(0)).to.equal("12:00am");
+    });
+  });
+
   describe("convertToBit function", function(){
     it("should convertToBit '1' to 1", function(){
       expect(genericfunctions.convertToBit("1")).to.equal(1);

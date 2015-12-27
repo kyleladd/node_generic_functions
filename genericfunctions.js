@@ -90,6 +90,31 @@ var convertToInttime = function (time){
     return numtime;
 }
 
+var convertIntToStrTime = function (numtime){
+    var string_time = "";
+    if(isNaN(numtime)){
+        numtime = 0;
+    }
+    if(numtime>2359){
+        numtime = 2359;
+    }
+    if(numtime > 1159){
+        string_time = string_time + "pm"
+    }
+    else{
+        string_time = string_time + "am"
+    }
+    if(numtime > 1259){
+        numtime = numtime-1200;
+    }
+    if(numtime < 100){
+        numtime = numtime+1200;
+    }
+    var strtime = numtime.toString();
+    string_time = [strtime.slice(0, strtime.length-2), ":", strtime.slice(strtime.length-2)].join('') + string_time;
+    return string_time;
+}
+
 var rtrim = function (str, ch)
 {
     for (i = str.length - 1; i >= 0; i--)
@@ -120,6 +145,7 @@ module.exports = {
   searchListDictionaries: searchListDictionaries,
   convertToBit: convertToBit,
   convertToInttime: convertToInttime,
+  convertIntToStrTime:convertIntToStrTime,
   rtrim: rtrim,
   toBoolean: toBoolean,
   isInteger:isInteger
