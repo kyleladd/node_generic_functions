@@ -1,8 +1,14 @@
 {
   "name"         : "node_generic_functions",
+  "private": true,
   "version"      : "0.0.1",
   "description"  : "Node Generic Functions",
   "author"       : "Kyle Ladd",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org:xavier315/node_generic_functions.git"
+  },
+  "main": "genericfunctions.js",
    "devDependencies": {
     "mocha"    : "latest",
     "expect.js":"latest",
