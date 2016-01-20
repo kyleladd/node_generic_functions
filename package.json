@@ -6,7 +6,7 @@
   "author"       : "Kyle Ladd",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org:xavier315/node_generic_functions.git"
+    "url": "https://github.com/kyleladd/node_generic_functions.git"
   },
   "main": "genericfunctions.js",
    "devDependencies": {
