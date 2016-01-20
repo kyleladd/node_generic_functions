@@ -1,5 +1,7 @@
 ## Installation
+
 #### Install Dependencies
-- ```npm install```
+  - ```npm install```
+
 #### Run Tests
 - ```./node_modules/mocha/bin/mocha```
