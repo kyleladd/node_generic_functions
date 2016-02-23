@@ -1,9 +1,10 @@
 var remove = function (arr, item) {
-  for(var i = arr.length; i--;) {
+  for(var i = arr.length - 1; i >= 0; i--) {
       if(arr[i] === item) {
           arr.splice(i, 1);
       }
   }
+  return arr;
 }
 
 var searchList = function (list,key,value,returnkeyv){
@@ -20,7 +21,8 @@ var searchList = function (list,key,value,returnkeyv){
     }
 }
 
-var searchListDictionaries = function (list,keyvaluelist){
+var searchListDictionaries = function (list,keyvaluelist,bool_index){
+    var bool_index = typeof bool_index !== 'undefined' ?  bool_index : false;
     try{
         var numcriterion = 0;
         for (var key in keyvaluelist) {
@@ -32,16 +34,47 @@ var searchListDictionaries = function (list,keyvaluelist){
                 if(list[i][key] == keyvaluelist[key]){
                     counter++;
                     if(counter == numcriterion){
-                        return list[i];
+                        if(bool_index){return i;}
+                        else{return list[i];}
                     }
                 }
             }
         }
-        return null;
+        if(bool_index){return -1;}else{return null;}
     }
     catch(err){
-        return null;
+        if(bool_index){return -1;}else{return null;}
     }
+}
+var searchListObjects = function (list,comp_object){
+    try{
+        for(var i = 0; i < list.length; i++){
+            if(JSON.stringify(list[i]) == JSON.stringify(comp_object)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    catch(err){
+        return -1;
+    }
+}
+
+var inList = function (needle, haystack) 
+{
+    var i = haystack.length;
+    while (i--) {
+        if (haystack[i] === needle) return true;
+    }
+    return false;
+}
+
+var padStr = function(str,padToLength,character){
+    character = typeof character !== 'undefined' ? character : "0";
+    while (str.toString().length < padToLength) {
+        str = character + str;
+    }
+    return str;
 }
 
 var convertToBit = function (value){
@@ -56,7 +89,7 @@ var convertToBit = function (value){
     }
 }
 
-var convertToInttime = function (time){
+var convertToInttime  = function (time){
     var numtime = 0;
     time = time.replace(/ /g,"");
     time = time.replace(/\./g,"");
@@ -127,26 +160,41 @@ var rtrim = function (str, ch)
     } 
     return str;
 }
+
 var toBoolean = function(value){
     if(value === true || value === "true"){
         return true;
     }
     return false;
 }
+
 var isInteger = function  (data){
     // console.log(data.toString());
     // console.log(new RegExp("^-?[0-9]+$").test(data.toString()));
   return (typeof data === 'number' && (data % 1) === 0);
 }
 
+var isEmpty = function(object) {
+  for(var key in object) {
+    if(object.hasOwnProperty(key)){
+      return false;
+    }
+  }
+  return true;
+}
+
 module.exports = {
   remove: remove,
   searchList: searchList,
   searchListDictionaries: searchListDictionaries,
+  searchListObjects: searchListObjects,
+  inList:inList,
+  padStr:padStr,
   convertToBit: convertToBit,
-  convertToInttime: convertToInttime,
+  convertToInttime : convertToInttime ,
   convertIntToStrTime:convertIntToStrTime,
   rtrim: rtrim,
   toBoolean: toBoolean,
-  isInteger:isInteger
+  isInteger:isInteger,
+  isEmpty:isEmpty
 };
