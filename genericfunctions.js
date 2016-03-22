@@ -21,9 +21,11 @@ var searchList = function (list,key,value,returnkeyv){
     }
 }
 
-var searchListDictionaries = function (list,keyvaluelist,bool_index){
-    var bool_index = typeof bool_index !== 'undefined' ?  bool_index : false;
+var searchListDictionaries = function (list,keyvaluelist,bool_index,makelist){
+    var bool_index = typeof bool_index !== 'undefined' ?  Boolean(bool_index) : false;
+    var makelist = typeof makelist !== 'undefined' ?  Boolean(makelist) : false;
     try{
+        var list_of_matches = [];
         var numcriterion = 0;
         for (var key in keyvaluelist) {
             numcriterion++;
@@ -34,15 +36,23 @@ var searchListDictionaries = function (list,keyvaluelist,bool_index){
                 if(list[i][key] == keyvaluelist[key]){
                     counter++;
                     if(counter == numcriterion){
-                        if(bool_index){return i;}
-                        else{return list[i];}
+                        if(makelist){
+                            if(bool_index){list_of_matches.push(i);}
+                            else{list_of_matches.push(list[i]);}
+                        }
+                        else{
+                            if(bool_index){return i;}
+                            else{return list[i];}
+                        }
                     }
                 }
             }
         }
+        if(makelist){return list_of_matches;}
         if(bool_index){return -1;}else{return null;}
     }
     catch(err){
+        if(makelist){return [];}
         if(bool_index){return -1;}else{return null;}
     }
 }

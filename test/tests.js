@@ -148,6 +148,26 @@ describe("Generic Functions", function(){
         chai.assert.deepEqual(genericfunctions.searchListDictionaries([{a:"1",d:"5",e:"6"},{b:"2",d:"5",e:"6"},{c:"3",d:"5",e:"6"}],{b:"2",e:"6",f:"2"},true), -1);
       });
     });
+    describe("searchListDictionaries function - return list", function(){
+      describe("searchListDictionaries function - return list of index", function(){
+        // Return list of index
+        it("should return first result when there are multiple matches", function(){
+          chai.assert.deepEqual(genericfunctions.searchListDictionaries([{a:"1",d:"5",e:"6"},{b:"2",d:"5",e:"6"},{c:"3",d:"5",e:"6"}],{d:"5"},true,true), [0,1,2]);
+        });
+        it("should return null when no matches are found", function(){
+          chai.assert.deepEqual(genericfunctions.searchListDictionaries([{a:"1",d:"5",e:"6"},{b:"2",d:"5",e:"6"},{c:"3",d:"5",e:"6"}],{b:"2",e:"6",f:"2"},true,true), []);
+        });
+      });
+      describe("searchListDictionaries function - return list of dictionaries", function(){
+        // Returnlist of  matching dictionaries
+        it("should return first result when there are multiple matches", function(){
+          chai.assert.deepEqual(genericfunctions.searchListDictionaries([{a:"1",d:"5",e:"6"},{b:"2",d:"5",e:"6"},{c:"3",d:"5",e:"6"}],{d:"5"},false,true), [{a:"1",d:"5",e:"6"},{b:"2",d:"5",e:"6"},{c:"3",d:"5",e:"6"}]);
+        });
+        it("should return null when no matches are found", function(){
+          chai.assert.deepEqual(genericfunctions.searchListDictionaries([{a:"1",d:"5",e:"6"},{b:"2",d:"5",e:"6"},{c:"3",d:"5",e:"6"}],{b:"2",e:"6",f:"2"},false,true), []);
+        });
+      });
+    });
   });
   describe("rtrim function", function(){
     //Not being used yet.

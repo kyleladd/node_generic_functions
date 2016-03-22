@@ -1,7 +1,7 @@
 {
   "name"         : "node_generic_functions",
   "private": true,
-  "version"      : "0.0.1",
+  "version"      : "0.0.2",
   "description"  : "Node Generic Functions",
   "author"       : "Kyle Ladd",
   "repository": {
