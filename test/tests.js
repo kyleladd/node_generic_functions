@@ -265,4 +265,26 @@ describe("Generic Functions", function(){
       expect(genericfunctions.inList("needle",["somthing","needle","somthing"])).to.equal(true);
     });
   });
+  describe("startsWith function", function(){
+    it("haystack does start with needle", function(){
+      expect(genericfunctions.startsWith("needle","needles can be found at the beginning of the haystack")).to.equal(true);
+    });
+    it("haystack does not start with needle", function(){
+      expect(genericfunctions.startsWith("needle","haystack")).to.equal(false);
+    });
+    it("haystack does start with needle but the case is different", function(){
+      expect(genericfunctions.startsWith("needle","Needles can be found at the start of the haystack only if the case matches")).to.equal(false);
+    });
+  });
+  describe("endsWith function", function(){
+    it("haystack does end with needle", function(){
+      expect(genericfunctions.endsWith("needle","I found the needle")).to.equal(true);
+    });
+    it("haystack does not end with needle", function(){
+      expect(genericfunctions.endsWith("needle","I cannot find the needle at the end of the haystack")).to.equal(false);
+    });
+    it("haystack does end with needle but the case is different", function(){
+      expect(genericfunctions.endsWith("needle","I cannot find the Needle")).to.equal(false);
+    });
+  });
 });

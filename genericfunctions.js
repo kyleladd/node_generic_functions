@@ -206,6 +206,25 @@ var alphaNumericSort = function(a,b){
         return aA > bA ? 1 : -1;
     }
 }
+// If string (haystack) Starts with string (needle)
+var startsWith = function(needle,haystack) {
+    try{
+        return haystack.indexOf(needle, 0) === 0;
+    }
+    catch(err){
+        return false;
+    }
+};
+
+// If string (haystack) Ends width (needle)
+var endsWith = function(needle,haystack) {
+    try{
+        return haystack.indexOf(needle, haystack.length - needle.length) !== -1;
+    }
+    catch(err){
+        return false;
+    }
+};
 
 module.exports = {
   remove: remove,
@@ -221,5 +240,7 @@ module.exports = {
   toBoolean: toBoolean,
   isInteger:isInteger,
   isEmpty:isEmpty,
-  alphaNumericSort:alphaNumericSort
+  alphaNumericSort:alphaNumericSort,
+  startsWith:startsWith,
+  endsWith:endsWith
 };
