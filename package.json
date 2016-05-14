@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/kyleladd/node_generic_functions.git"
   },
+  "scripts": {
+    "test": "mocha"
+  },
   "main": "genericfunctions.js",
    "devDependencies": {
     "mocha"    : "latest",
