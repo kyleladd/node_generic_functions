@@ -1,9 +1,9 @@
 {
-  "name"         : "node_generic_functions",
+  "name": "node_generic_functions",
   "private": true,
-  "version"      : "0.0.2",
-  "description"  : "Node Generic Functions",
-  "author"       : "Kyle Ladd",
+  "version": "0.0.3",
+  "description": "Node Generic Functions",
+  "author": "Kyle Ladd",
   "repository": {
     "type": "git",
     "url": "https://github.com/kyleladd/node_generic_functions.git"
@@ -12,12 +12,12 @@
     "test": "mocha"
   },
   "main": "genericfunctions.js",
-   "devDependencies": {
-    "mocha"    : "latest",
-    "expect.js":"latest",
-    "chai":"latest",
-    "chai-spies":"latest",
-    "sinon":"latest",
-    "sinon-chai":"latest"
+  "devDependencies": {
+    "mocha": "latest",
+    "expect.js": "latest",
+    "chai": "latest",
+    "chai-spies": "latest",
+    "sinon": "latest",
+    "sinon-chai": "latest"
   }
 }
