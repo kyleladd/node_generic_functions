@@ -1,15 +1,15 @@
 (function (root, factory) {
-    //http://ifandelse.com/its-not-hard-making-your-library-support-amd-and-commonjs/
-  if(typeof define === "function" && define.amd) {
-    define([""], function(){
-      return (root.node_generic_functions = factory());
-    });
-  } else if(typeof module === "object" && module.exports) {
-    module.exports = (root.node_generic_functions = factory());
-  } else {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([], factory);
+} else if (typeof module !== "undefined" && module.exports) {
+    // CommonJS/Node module
+    module.exports = factory();
+} else {
+    // Browser globals
     root.node_generic_functions = factory();
-  }
-}(this, function(node_generic_functions) {
+}
+}(this, function() {
 
     var remove = function (arr, item) {
       for(var i = arr.length - 1; i >= 0; i--) {
@@ -83,7 +83,7 @@
         }
     }
 
-    var inList = function (needle, haystack) 
+    var inList = function (needle, haystack)
     {
         var i = haystack.length;
         while (i--) {
@@ -180,7 +180,7 @@
                 str = str.substring(0, i + 1);
                 break;
             }
-        } 
+        }
         return str;
     }
 
